@@ -1,0 +1,10 @@
+{
+  "id": 826018,
+  "name": "Latte",
+  "code": "latte298",
+  "description": "",
+  "barcode": "1234567890",
+  "image": "http://images.com/latte.png",
+  "is_modifier": false,
+  "unit_price": "3.0"
+}
