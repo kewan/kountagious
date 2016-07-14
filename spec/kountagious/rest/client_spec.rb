@@ -23,6 +23,14 @@ describe Kountagious::REST::Client do
     expect(almond_milk['is_modifier']).to be(true)
   end
 
+  it "should be able to do find a product" do
+    response = subject.get({categories: 234, products: 2345, scope: :sites})
+    expect(response['name']).to eq 'Latte'
+    expect(response['is_modifier']).to be(false)
+    expect(response['image']).to eq("http://images.com/latte.png")
+    expect(response['unit_price']).to eq("3.0")
+  end
+
 	# it "should throw an error when creating a client without required tokens" do
 	# 	Kountagious.client_token = nil
 	# 	expect { Kountagious::REST::Client.new }.to raise_error Kountagious::Errors::MissingOauthDetails

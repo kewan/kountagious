@@ -33,6 +33,7 @@ module Helpers
 
     #products
     stub_request(:get, group_endpoint('products')).to_return(:body => load_json_from_fixture('products.json'), :headers => endpoint_headers)
+    stub_request(:get, singular_endpoint('products')).to_return(:body => load_json_from_fixture('product.json'), :headers => endpoint_headers)
 
 		# # create
 		# stub_request(:post, group_endpoint('products')).to_return(:body => load_json_from_fixture('product.json'), :headers => endpoint_headers)
