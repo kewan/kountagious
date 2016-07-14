@@ -1,0 +1,17 @@
+[
+  {
+    "id": 3928147,
+    "name": "Cappaccino",
+    "code": "capp123",
+    "description": "",
+    "barcode": "",
+    "is_modifier": false
+  },
+  {
+    "id": 3274192,
+    "name": "Almond milk",
+    "code": "almilk",
+    "description": "",
+    "is_modifier": true
+  }
+]
