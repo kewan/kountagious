@@ -30,7 +30,7 @@ module Kountagious
         begin
             response = oauth_connection.request(request_method, "#{path_from_hash(url_hash)}.#{FORMAT.to_s}", options)
         rescue Exception => e
-            if !e.message.nil? && (e.message.include?('The access token provided has expired') || e.message.include?('expired') || ex.message.include?('invalid'))
+            if !e.message.nil? && (e.message.include?('The access token provided has expired') || e.message.include?('expired') || e.message.include?('invalid'))
                 @auth_connection = refreshed_token
                 retry
             end

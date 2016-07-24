@@ -1,4 +1,5 @@
 require_relative "kountagious/version"
+require_relative "kountagious/errors"
 require_relative "kountagious/core_ext/array/extract_options"
 require_relative "kountagious/core_ext/module/attribute_accessors"
 require_relative "kountagious/rest/client"
