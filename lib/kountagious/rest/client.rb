@@ -21,6 +21,20 @@ module Kountagious
         end
       end
 
+      def get_access_code_url(params = {})
+        # Kounta's API seems to require the `state` param (can't find documentation on it anywhere)
+        # learn more about it: http://homakov.blogspot.com.au/2012/07/saferweb-most-common-oauth2.html
+        @client.auth_code.authorize_url(params.merge(redirect_uri: @redirect_uri, state: SecureRandom.hex(24)))
+      end
+
+      def get_access_token(access_code)
+        @token = @client.auth_code.get_token(access_code)
+        @access_token = @token.token
+        @expires_at = @token.expires_at
+        @refresh_token = @token.refresh_token
+        @token
+      end
+
       def perform(request_method, url_hash, options={})
 
         scope = url_hash.delete(:scope) || :companies
