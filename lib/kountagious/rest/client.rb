@@ -41,16 +41,16 @@ module Kountagious
 
         url_hash = scoped_url_hash(scope).merge! url_hash
 
-        begin
+        # begin
             response = oauth_connection.request(request_method, "#{path_from_hash(url_hash)}.#{FORMAT.to_s}", options)
-        rescue Exception => e
-            if !e.message.nil? && (e.message.include?('The access token provided has expired') || e.message.include?('expired') || e.message.include?('invalid'))
-                @auth_connection = refreshed_token
-                retry
-            end
-
-            raise Kountagious::Errors::RequestError.new(response.nil? ? 'Unknown Status' : response.status)
-        end
+        # rescue Exception => e
+        #     if !e.message.nil? && (e.message.include?('The access token provided has expired') || e.message.include?('expired') || e.message.include?('invalid'))
+        #         @auth_connection = refreshed_token
+        #         retry
+        #     end
+        #
+        #     raise Kountagious::Errors::RequestError.new(response.nil? ? 'Unknown Status' : response.status)
+        # end
 
         unless response
             raise Kountagious::Errors::RequestError.new('Unknown Status')
